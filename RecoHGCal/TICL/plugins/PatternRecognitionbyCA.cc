@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <set>
 #include <vector>
+#include <array>
 
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 #include "FWCore/Utilities/interface/Exception.h"
@@ -36,6 +37,8 @@ PatternRecognitionbyCA<TILES>::PatternRecognitionbyCA(const edm::ParameterSet &c
       check_missing_layers_(max_missing_layers_in_trackster_ < 100),
       shower_start_max_layer_(conf.getParameter<int>("shower_start_max_layer")),
       min_layers_per_trackster_(conf.getParameter<int>("min_layers_per_trackster")),
+      store_edges_(conf.getParameter<bool>("store_edges")),
+      prune_edges_(conf.getParameter<bool>("prune_edges")),
       filter_on_categories_(conf.getParameter<std::vector<int>>("filter_on_categories")),
       pid_threshold_(conf.getParameter<double>("pid_threshold")),
       energy_em_over_total_threshold_(conf.getParameter<double>("energy_em_over_total_threshold")),
@@ -184,6 +187,17 @@ void PatternRecognitionbyCA<TILES>::makeTracksters(
       tmp.setSeed(input.regions[0].collectionID, seedIndices[tracksterId]);
 
       std::copy(std::begin(effective_cluster_idx), std::end(effective_cluster_idx), std::back_inserter(tmp.vertices()));
+
+      // Propagate the correct graph connections
+      if (store_edges_) {
+        tmp.edges().reserve(ntuplet.size());
+        for (auto const &t : ntuplet) {
+          std::array<unsigned int, 2> edge = {
+              {(unsigned int)doublets[t].innerClusterId(), (unsigned int)doublets[t].outerClusterId()}};
+          tmp.edges().push_back(edge);
+        }
+      }
+
       tmpTracksters.push_back(tmp);
     }
   }

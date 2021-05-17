@@ -25,7 +25,9 @@ ticlTrackstersMIP = _trackstersProducer.clone(
     min_cos_pointing = 0.5,
     out_in_dfs = False,
     itername = "MIP",
-    max_delta_time = -1
+    max_delta_time = -1,
+    store_edges = True,
+    prune_edges = True
 )
 
 ticlMIPStepTask = cms.Task(ticlSeedingGlobal

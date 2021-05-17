@@ -31,11 +31,11 @@ ticlTrackstersTrk = _trackstersProducer.clone(
   algo_verbosity = 2,
   oneTracksterPerTrackSeed = True,
   promoteEmptyRegionToTrackster = True,
-  itername = "Trk"
+  itername = "Trk",
+  store_edges = True,
+  prune_edges = True
 )
 
 ticlTrkStepTask = cms.Task(ticlSeedingTrk
     ,filteredLayerClustersTrk
     ,ticlTrackstersTrk)
-
-

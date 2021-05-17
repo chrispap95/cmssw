@@ -135,6 +135,8 @@ void TrackstersProducer::fillDescriptions(edm::ConfigurationDescriptions& descri
   desc.add<double>("min_cos_pointing", -1.);
   desc.add<int>("skip_layers", 0);
   desc.add<int>("max_missing_layers_in_trackster", 9999);
+  desc.add<bool>("store_edges", true);
+  desc.add<bool>("prune_edges", true);
   desc.add<double>("etaLimitIncreaseWindow", 2.1);
   desc.add<int>("min_layers_per_trackster", 10);
   desc.add<double>("max_delta_time", 3.);  //nsigma

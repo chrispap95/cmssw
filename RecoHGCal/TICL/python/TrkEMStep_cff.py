@@ -34,6 +34,8 @@ ticlTrackstersTrkEM = _trackstersProducer.clone(
     max_delta_time = 3.,
     itername = "TrkEM",
     algo_verbosity = 0,
+    store_edges = True,
+    prune_edges = True
 )
 
 ticlTrkEMStepTask = cms.Task(ticlSeedingTrk
@@ -67,4 +69,3 @@ ticlTrackstersHFNoseTrkEM = ticlTrackstersTrkEM.clone(
 ticlHFNoseTrkEMStepTask = cms.Task(ticlSeedingTrkHFNose
     ,filteredLayerClustersHFNoseTrkEM
     ,ticlTrackstersHFNoseTrkEM)
-
