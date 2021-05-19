@@ -188,7 +188,7 @@ void PatternRecognitionbyCA<TILES>::makeTracksters(
 
       std::copy(std::begin(effective_cluster_idx), std::end(effective_cluster_idx), std::back_inserter(tmp.vertices()));
 
-      // Propagate the correct graph connections
+      // Store edges
       if (store_edges_) {
         tmp.edges().reserve(ntuplet.size());
         std::unordered_set<unsigned int> targetVert;
