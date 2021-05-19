@@ -30,8 +30,8 @@ ticlTrackstersHAD = _trackstersProducer.clone(
     min_cos_pointing = 0.819, # ~35 degrees
     max_delta_time = -1,
     itername = "HAD",
-    store_edges = True,
-    prune_edges = True
+    store_edges = False,
+    prune_edges = False
     )
 
 ticlHADStepTask = cms.Task(ticlSeedingGlobal

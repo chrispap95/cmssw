@@ -191,10 +191,19 @@ void PatternRecognitionbyCA<TILES>::makeTracksters(
       // Propagate the correct graph connections
       if (store_edges_) {
         tmp.edges().reserve(ntuplet.size());
+        std::unordered_set<unsigned int> targetVert;
         for (auto const &t : ntuplet) {
           std::array<unsigned int, 2> edge = {
               {(unsigned int)doublets[t].innerClusterId(), (unsigned int)doublets[t].outerClusterId()}};
-          tmp.edges().push_back(edge);
+          if (prune_edges_) {
+            if (targetVert.find(edge[1]) == targetVert.end()) {
+              targetVert.insert(edge[1]);
+              tmp.edges().push_back(edge);
+            }
+          }
+          else {
+            tmp.edges().push_back(edge);
+          }
         }
       }
 
