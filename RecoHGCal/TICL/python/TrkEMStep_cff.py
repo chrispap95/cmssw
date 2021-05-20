@@ -67,3 +67,4 @@ ticlTrackstersHFNoseTrkEM = ticlTrackstersTrkEM.clone(
 ticlHFNoseTrkEMStepTask = cms.Task(ticlSeedingTrkHFNose
     ,filteredLayerClustersHFNoseTrkEM
     ,ticlTrackstersHFNoseTrkEM)
+

@@ -43,7 +43,7 @@ def TICL_iterations_withReco(process):
     skip_layers = 3,
     min_layers_per_trackster = 5,
     min_cos_theta = 0.99, # ~10 degrees
-    min_cos_pointing = 0.9,
+    min_cos_pointing = 0.9
   )
 
   process.ticlSeedingGlobal = ticlSeedingRegionProducer.clone(
@@ -83,7 +83,7 @@ def TICL_iterations_withReco(process):
       skip_layers = 1,
       min_layers_per_trackster = 10,
       min_cos_theta = 0.984, # ~10 degrees
-      min_cos_pointing = 0.9, # ~26 degrees
+      min_cos_pointing = 0.9 # ~26 degrees
   )
 
   process.trackstersHAD = trackstersProducer.clone(
@@ -92,7 +92,7 @@ def TICL_iterations_withReco(process):
       skip_layers = 2,
       min_layers_per_trackster = 10,
       min_cos_theta = 0.8,
-      min_cos_pointing = 0.7,
+      min_cos_pointing = 0.7
   )
 
   process.ticlCandidateFromTrackstersProducer = ticlCandidateFromTrackstersProducer.clone()
@@ -165,7 +165,7 @@ def TICL_iterations(process):
       skip_layers = 2,
       min_layers_per_trackster = 15,
       min_cos_theta = 0.94, # ~20 degrees
-      min_cos_pointing = 0.7,
+      min_cos_pointing = 0.7
   )
 
   process.HGCalUncalibRecHit = HGCalUncalibRecHit
@@ -185,3 +185,4 @@ def TICL_iterations(process):
   process.schedule = cms.Schedule(process.raw2digi_step,process.FEVTDEBUGHLToutput_step)
   process.schedule.associate(process.TICL_Task)
   return process
+
