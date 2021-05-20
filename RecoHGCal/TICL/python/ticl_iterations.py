@@ -44,8 +44,6 @@ def TICL_iterations_withReco(process):
     min_layers_per_trackster = 5,
     min_cos_theta = 0.99, # ~10 degrees
     min_cos_pointing = 0.9,
-    store_edges = True,
-    prune_edges = True
   )
 
   process.ticlSeedingGlobal = ticlSeedingRegionProducer.clone(
@@ -67,8 +65,6 @@ def TICL_iterations_withReco(process):
       min_cos_theta = 0.99, # ~10 degrees
       min_cos_pointing = 0.9,
       out_in_dfs = False,
-      store_edges = True,
-      prune_edges = True
   )
 
   process.filteredLayerClusters = filteredLayerClustersProducer.clone(
@@ -88,8 +84,6 @@ def TICL_iterations_withReco(process):
       min_layers_per_trackster = 10,
       min_cos_theta = 0.984, # ~10 degrees
       min_cos_pointing = 0.9, # ~26 degrees
-      store_edges = True,
-      prune_edges = True
   )
 
   process.trackstersHAD = trackstersProducer.clone(
@@ -99,8 +93,6 @@ def TICL_iterations_withReco(process):
       min_layers_per_trackster = 10,
       min_cos_theta = 0.8,
       min_cos_pointing = 0.7,
-      store_edges = True,
-      prune_edges = True
   )
 
   process.ticlCandidateFromTrackstersProducer = ticlCandidateFromTrackstersProducer.clone()
@@ -157,8 +149,6 @@ def TICL_iterations(process):
       skip_layers = 3,
       min_layers_per_trackster = 15,
       min_cos_theta = 0.99, # ~10 degrees
-      store_edges = True,
-      prune_edges = True
   )
 
   process.filteredLayerClusters = filteredLayerClustersProducer.clone(
@@ -176,8 +166,6 @@ def TICL_iterations(process):
       min_layers_per_trackster = 15,
       min_cos_theta = 0.94, # ~20 degrees
       min_cos_pointing = 0.7,
-      store_edges = True,
-      prune_edges = True
   )
 
   process.HGCalUncalibRecHit = HGCalUncalibRecHit

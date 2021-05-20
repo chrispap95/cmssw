@@ -34,8 +34,6 @@ ticlTrackstersTrkEM = _trackstersProducer.clone(
     max_delta_time = 3.,
     itername = "TrkEM",
     algo_verbosity = 0,
-    store_edges = False,
-    prune_edges = False
 )
 
 ticlTrkEMStepTask = cms.Task(ticlSeedingTrk
